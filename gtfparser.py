@@ -31,7 +31,7 @@ def genecoverage(row):
 			genedict[gene] = geneinfo	#will attach the start and stop values the first time a gene is encountered
 			# print(genedict[gene]) #DEBUG
 	# if the row isn't an exon it just does nothing lmao
-	print(genedict) #DEBUG
+	# print(genedict) #DEBUG
 	return genedict
 
 
