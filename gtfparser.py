@@ -18,18 +18,18 @@ def genecoverage(row):
 			if start < oldstart:
 				del genedict[gene][1]
 				genedict[gene].insert(1,start) #adds the new start location
-				print(genedict[gene]) #DEBUG
+				# print(genedict[gene]) #DEBUG
 			if stop > oldstop:
 				del genedict[gene][2]
 				genedict[gene].insert(2, stop) #adds the new stop location
-				print(genedict[gene]) #DEBUG
+				# print(genedict[gene]) #DEBUG
 
 		else:
 			chrom = row[0]
 			strand = row[6]
 			geneinfo = [chrom, start, stop, strand]
 			genedict[gene] = geneinfo	#will attach the start and stop values the first time a gene is encountered
-			print(genedict[gene]) #DEBUG
+			# print(genedict[gene]) #DEBUG
 	# if the row isn't an exon it just does nothing lmao
 	print(genedict) #DEBUG
 	return genedict
