@@ -53,8 +53,9 @@ for gene in genedict: # tabs after the first three for that good good tsv format
 	start = str(genedict[gene][1]) + "\t"
 	stop = str(genedict[gene][2]) + "\t"
 	strand = str(genedict[gene][3]) + "\n"
-	line = gene + chrom + start + stop + strand
-	outfile.write(line)
+	if chrom == "[X|Y]" or chrom == "[0-9]+":
+		line = gene + chrom + start + stop + strand
+		outfile.write(line)
 outfile.close()
 
 #this works
