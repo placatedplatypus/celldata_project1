@@ -49,7 +49,7 @@ with open(infile) as tsvfile:
 
 
 for gene in genedict: # tabs after the first three for that good good tsv formatting
-	chrom = str(genedict[gene][0]) + "\t"
+	chrom = "\t" + str(genedict[gene][0]) + "\t"
 	start = str(genedict[gene][1]) + "\t"
 	stop = str(genedict[gene][2]) + "\t"
 	strand = str(genedict[gene][3]) + "\n"
