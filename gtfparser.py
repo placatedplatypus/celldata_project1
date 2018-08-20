@@ -1,5 +1,6 @@
 import sys
 import csv
+import re
 from collections import defaultdict
 
 ## input is a gtf file
@@ -53,7 +54,7 @@ for gene in genedict: # tabs after the first three for that good good tsv format
 	start = str(genedict[gene][1]) + "\t"
 	stop = str(genedict[gene][2]) + "\t"
 	strand = str(genedict[gene][3]) + "\n"
-	if chrom == "[X|Y]" or chrom == "[0-9]+":
+	if re.match(r"[X|Y]", genedict[gene][0]) or re.match(r"[0-9]+",genedict[gene][0]):
 		line = gene + chrom + start + stop + strand
 		outfile.write(line)
 outfile.close()
