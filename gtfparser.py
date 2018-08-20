@@ -16,11 +16,11 @@ def genecoverage(row):
 			oldstart = genedict[gene][1]
 			oldstop = genedict[gene][2]
 
-			if start < oldstart:
+			if int(start) < int(oldstart):
 				del genedict[gene][1]
 				genedict[gene].insert(1,start) #adds the new start location
 				# print(genedict[gene]) #DEBUG
-			if stop > oldstop:
+			if int(stop) > int(oldstop):
 				del genedict[gene][2]
 				genedict[gene].insert(2, stop) #adds the new stop location
 				# print(genedict[gene]) #DEBUG
