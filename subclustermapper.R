@@ -24,6 +24,9 @@ df2 <- read.table("mousegenome.bed") # make sure you have this file lol
 # can use IRanges(df2[[3]],df2[[4]]) to get TSS and TES. As it stands it only grabs TES
 ref = GRanges(seqnames = df2[[2]], ranges = df2[[4]], strand = df2[[5]])
 # this gets our read index
+	    
+plotname <- paste0(raw, ".png")
+png(plotname)
 
 range <- seq(-5000, 4950, by=50)
 xrange <- range(range)
@@ -59,3 +62,5 @@ overlist <- lapply(filenames, function(x) {
 for (i in 1:n) {
 	lines(range, overlist[[i]], type="l", lwd=1.5, col=colors[i])
 }
+
+dev.off()
