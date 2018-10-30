@@ -19,4 +19,4 @@ corrected <- ddply(geneinfo, ~ V9, function(gene) {
 	gene
 })
 
-write.table(corrected, file='mm10_longerUTR_c.gtf', quote=FALSE, sep='\t', col.names = FALSE)
+write.table(corrected, file='mm10_longerUTR_c.gtf', quote=FALSE, sep='\t', col.names = FALSE, row.names = FALSE)
