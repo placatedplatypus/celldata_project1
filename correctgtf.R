@@ -1,6 +1,6 @@
 library(plyr)
 
-geneinfo <- read.table(mm10_longerUTR.gtf)
+geneinfo <- read.table("mm10_longerUTR.gtf")
 
 # split the gtf into by gene
 corrected <- ddply(geneinfo, ~ V9, function(gene) {
