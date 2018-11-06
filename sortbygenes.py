@@ -59,14 +59,13 @@ with open(outfile, 'w') as out:
             stop = genedict[gene][i+4]
             start = genedict[gene][i+5]
             if stop == start:
-                sequence[i//2] = sequence[i//2][:-1]        # clips overlap nucleotide
                 genedict[gene][i+4] = str(int(stop) - 1)         # corrects read range for future algorithms
         if genedict[gene][2] == "+":    # if positive strand, forward-splices exons
             genedict[gene][0] = "".join(sequence)
         else:                           # if negative strand, reverse-splices exons and inverts sequence.
-            sequence = "".join(list(reversed(sequence)))
+            sequence = "".join(sequence)
             sequence = reversecomplement(sequence)
-            genedict[gene][0] = "".join(sequence)
+            genedict[gene][0] = sequence
         geneinfo = '\t'.join(genedict[gene][1:])    # writes chr strand starts and stops as TSV
         out.write('>' + gene + '\t' + geneinfo + '\n')
         out.write(genedict[gene][0] + '\n')    # writes entire genetic code to next line
